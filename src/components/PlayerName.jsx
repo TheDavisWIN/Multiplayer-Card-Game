@@ -5,7 +5,7 @@ export const PlayerName = ({ name = "", fontSize = 0.2, ...props }) => (
     <Text
       anchorY={"bottom"}
       fontSize={fontSize}
-      font="/fonts/RobotoSlab-Bold.ttf"
+      font={`${import.meta.env.BASE_URL}fonts/RobotoSlab-Bold.ttf`}
     >
       {name}
     </Text>

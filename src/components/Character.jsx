@@ -5,7 +5,7 @@ const CHARACTERS = ["Anne", "Captain_Barbarossa", "Henry", "Mako"];
 
 export const Character = ({ character = 0, animation = "Idle", ...props }) => {
   const { scene, animations } = useGLTF(
-    `/models/Characters_${CHARACTERS[character]}.gltf`
+    `${import.meta.env.BASE_URL}models/Characters_${CHARACTERS[character]}.gltf`
   );
 
   const ref = useRef();

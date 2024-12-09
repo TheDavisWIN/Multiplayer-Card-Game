@@ -1,6 +1,8 @@
 import { Text, useFont, useGLTF, useTexture } from "@react-three/drei";
 import React from "react";
 
+const basePath = import.meta.env.BASE_URL;
+
 const CARD_DESCRIPTIONS = {
   punch: "Punch another pirate and make it drop a gem",
   shield: "Protect yourself from an attack",
@@ -8,8 +10,8 @@ const CARD_DESCRIPTIONS = {
 };
 
 export function Card({ type= "shield", ...props }) {
-  const { nodes, materials } = useGLTF("/models/card.glb");
-  const texture = useTexture(`cards/${type}.jpg`);
+  const { nodes, materials } = useGLTF(`${basePath}models/card.glb`);
+  const texture = useTexture(`${basePath}cards/${type}.jpg`);
   return (
     <group {...props} dispose={null}>
       <mesh 
@@ -32,7 +34,7 @@ export function Card({ type= "shield", ...props }) {
         material={materials.Back}
       />
       <Text
-        font="/fonts/RobotoSlab-Bold.ttf"
+        font={`${basePath}fonts/RobotoSlab-Bold.ttf`}
         fontSize={0.1}
         anchorY={"top"}
         anchorX={"left"}
@@ -47,7 +49,7 @@ export function Card({ type= "shield", ...props }) {
         />
       </Text>
       <Text
-        font="/fonts/RobotoSlab-Regular.ttf"
+        font={`${basePath}fonts/RobotoSlab-Regular.ttf`}
         fontSize={0.06}
         maxWidth={0.9}
         anchorY={"top"}
@@ -67,9 +69,9 @@ export function Card({ type= "shield", ...props }) {
   );
 }
 
-useGLTF.preload("/models/card.glb");
-useTexture.preload("/cards/punch.jpg");
-useTexture.preload("/cards/shield.jpg");
-useTexture.preload("/cards/grab.jpg");
-useFont.preload("/fonts/RobotoSlab-Bold.ttf");
-useFont.preload("/fonts/RobotoSlab-Regular.ttf");
+useGLTF.preload(`${basePath}models/card.glb`);
+useTexture.preload(`${basePath}cards/punch.jpg`);
+useTexture.preload(`${basePath}cards/shield.jpg`);
+useTexture.preload(`${basePath}cards/grab.jpg`);
+useFont.preload(`${basePath}fonts/RobotoSlab-Bold.ttf`);
+useFont.preload(`${basePath}fonts/RobotoSlab-Regular.ttf`);

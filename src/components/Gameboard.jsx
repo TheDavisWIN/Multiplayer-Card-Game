@@ -11,6 +11,8 @@ import {
   import { useGameEngine } from "../hooks/useGameEngine";
   import { Card } from "./Card";
   import { Player } from "./Player";
+
+  const basePath = import.meta.env.BASE_URL;
   
   export const Gameboard = () => {
     const viewport = useThree((state) => state.viewport);
@@ -52,7 +54,7 @@ import {
         {/* BG */}
         <Gltf
           castShadow
-          src="/models/Gameboard.glb"
+          src={`${import.meta.env.BASE_URL}models/Gameboard.glb`}
           scale={0.8}
           position-x={-1}
           position-z={5}
@@ -98,7 +100,7 @@ import {
         {[...Array(gems)].map((_, index) => (
           <Gltf
             key={index}
-            src="/models/UI_Gem_Blue.gltf"
+            src={`${import.meta.env.BASE_URL}models/UI_Gem_Blue.gltf`}
             position-x={index * 0.5}
             position-y={0.25}
             scale={0.5}
@@ -114,5 +116,5 @@ import {
     );
   };
   
-  useGLTF.preload("/models/Gameboard.glb");
-  useGLTF.preload("/models/UI_Gem_Blue.gltf");
+  useGLTF.preload(`${basePath}models/Gameboard.glb`);
+  useGLTF.preload(`${basePath}models/UI_Gem_Blue.gltf`);

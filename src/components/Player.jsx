@@ -81,13 +81,13 @@ export const Player = ({ index, player }) => {
         rotation-y={degToRad(180)}
         animation={animation}
       />
-      {hasShield && <Gltf scale={0.5} src="/models/Prop_Barrel.gltf" />}
+      {hasShield && <Gltf scale={0.5} src={`${import.meta.env.BASE_URL}models/Prop_Barrel.gltf`} />}
       {/* PLAYER GEMS */}
       <Center disableY disableZ>
         {[...Array(player.getState("gems") || 0)].map((_, index) => (
           <Gltf
             key={index}
-            src="/models/UI_Gem_Blue.gltf"
+            src={`${import.meta.env.BASE_URL}models/UI_Gem_Blue.gltf`}
             position-x={index * 0.25}
             position-y={0.25}
             position-z={0.5}

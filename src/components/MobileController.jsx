@@ -34,11 +34,11 @@ export const MobileController = () => {
           />
           {[...Array(me.getState("gems") || 0)].map((_, index) => (
             <Gltf
-              key={index}
-              src="/models/UI_Gem_Blue.gltf"
-              position-x={0.7 + index * 0.25}
-              position-y={0.25}
-              scale={0.5}
+                key={index}
+                src={`${import.meta.env.BASE_URL}models/UI_Gem_Blue.gltf`}
+                position-x={0.7 + index * 0.25}
+                position-y={0.25}
+                scale={0.5}
             />
           ))}
         </group>
